@@ -14,6 +14,7 @@
 #include <QMidiOut.h>
 #include <QMidiIn.h>
 #include <QMidiFile.h>
+#include <QDebug>
 
 #include "QMidiListener.h"
 

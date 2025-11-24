@@ -7,7 +7,8 @@ set(CMAKE_AUTOMOC ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
 
-find_package(QMidi REQUIRED)
+set(QMIDI_DIR ../QMidi)
+find_package(QMidi REQUIRED HINTS ${QMIDI_DIR})
 
 add_executable(qmidievents MACOSX_BUNDLE
     ${QMidi_INTERFACE}
@@ -31,7 +32,7 @@ install(TARGETS qmidievents
 if (${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 qt_generate_deploy_app_script(
     TARGET qmidievents
-    FILENAME_VARIABLE deploy_script
+    OUTPUT_SCRIPT deploy_script
     NO_UNSUPPORTED_PLATFORM_ERROR
 )
 install(SCRIPT ${deploy_script})

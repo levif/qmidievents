@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <QMidiFile.h>
 #include <QDebug>
+#include <QElapsedTimer>
 
 #include "QMidiListener.h"
 
